@@ -2,6 +2,7 @@
 
 	include 'HTTP/OAuth/Consumer.php';
 	include "consumer.php";
+	include "server_data.php";
 
 
 	$verifier	= $_GET['oauth_verifier'];
@@ -20,12 +21,12 @@
 		
 		if( $ac_token != null && $ac_token_s != null){
 		
-			setcookie('r_token' , null, 0 , '/kugyu/' ,'www.mumei-himazin.info');
-			setcookie('r_secret' , null, 0 , '/kugyu/' ,'www.mumei-himazin.info');
+			setcookie('r_token' , null, 0 , $path ,$domain);
+			setcookie('r_secret' , null, 0 , $path ,$domain);
 		
-			setcookie('token' ,$ac_token , time()+60*60*24*30 , '/kugyu/' ,'www.mumei-himazin.info');
-			setcookie('secret' , $ac_token_s , time()+60*60*24*30 , '/kugyu/' ,'www.mumei-himazin.info');
+			setcookie('token' ,$ac_token , time()+60*60*24*30 , $path ,$domain);
+			setcookie('secret' , $ac_token_s , time()+60*60*24*30 , $path ,$domain);
 		}
 	}
-	header('Location: http://www.mumei-himazin.info/kugyu/index.php');
+	header('Location: '.$root);
 ?>

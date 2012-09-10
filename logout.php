@@ -1,8 +1,10 @@
 <?php
+	
+	include "server_data.php";
+	
+	setcookie('token' , null, 0 , $path ,$domain);
+	setcookie('secret' , null, 0 , $path ,$domain);
 
-	setcookie('token' , null, 0 , '/kugyu/' ,'www.mumei-himazin.info');
-	setcookie('secret' , null, 0 , '/kugyu/' ,'www.mumei-himazin.info');
-
-	header('Location: http://www.mumei-himazin.info/kugyu/index.php');
+	header('Location: '.$root);
 
 ?>
